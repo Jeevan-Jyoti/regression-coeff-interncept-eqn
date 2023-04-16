@@ -1,0 +1,25 @@
+# Perform linear regression
+reg = LinearRegression().fit(X, y)
+
+# Print the coefficients
+print(reg.coef_)
+print(reg.intercept_)
+
+print()
+
+print('Linear Regression Equation:')
+equation = 'y = ' + ' + '.join(['{}*{}'.format(round(reg.coef_[i],2), col) for i, col in enumerate(X.columns)])
+print(equation + ' + {}'.format(round(reg.intercept_,4)))
+
+"""
+equation = 'y = '
+for i, col in enumerate(X.columns):
+    coef = round(model.coef_[i], 2)
+    term = '{}*{}'.format(coef, col)
+    if i == 0:
+        equation += term
+    else:
+        equation += ' + ' + term
+equation += ' + {}'.format(round(model.intercept_, 2))
+print(equation)
+"""
